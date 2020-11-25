@@ -1,8 +1,11 @@
 from aiogram import Bot, Dispatcher, types
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
 
+from gino import Gino
 
 from app import config
+
+db = Gino()
 
 bot = Bot(
     token=config.BOT_TOKEN,
@@ -20,4 +23,5 @@ __all__ = (
     "bot",
     "storage",
     "dp",
+    "db",
 )
