@@ -2,9 +2,12 @@ from typing import List, Union
 
 from loguru import logger
 
-from app.utils import Broadcast
+from app.loader import dp
 
 
 async def notify_admins(admins: Union[List[int], List[str], int, str]):
-    count = await (Broadcast(admins, 'The bot is running!')).start()
+    count = 0
+    for admin in admins:
+        await dp.bot.send_message(admin, "Bot started")
+        count += 1
     logger.info(f"{count} admins received messages")
