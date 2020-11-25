@@ -1,1 +1,0 @@
-# Bot created by [Forzend Mainer](https://github.com/0Kit)
