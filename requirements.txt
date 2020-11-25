@@ -1,3 +1,5 @@
 aiogram==2.11.2
 environs==9.2.0
 loguru==0.5.3
+gino==1.0.1
+alembic==1.4.3
