@@ -2,7 +2,7 @@ from aiogram import Dispatcher
 from aiogram.utils import executor
 
 from app import utils, config
-from app.misc import dp
+from app.loader import dp
 
 # The configuration of the modules using import
 from app import middlewares, filters, handlers

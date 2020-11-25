@@ -2,7 +2,7 @@ from typing import List, Union
 
 from loguru import logger
 
-from app.misc import dp
+from app.loader import dp
 
 
 async def notify_admins(admins: Union[List[int], List[str], int, str]):

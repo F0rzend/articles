@@ -4,7 +4,7 @@ from gino import UninitializedError
 
 from loguru import logger
 
-from app.misc import db
+from app.loader import db
 
 
 async def connect(postgres_uri):

@@ -1,6 +1,6 @@
 from sqlalchemy.sql import Select, expression
 
-from app.misc import db
+from app.loader import db
 
 
 class User(db.Model):

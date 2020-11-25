@@ -6,7 +6,7 @@ from sqlalchemy import pool
 from alembic import context
 
 from app.config import POSTGRES_URI
-from app.misc import db
+from app.loader import db
 from app.models import *
 
 # this is the Alembic Config object, which provides
