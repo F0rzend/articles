@@ -12,10 +12,6 @@ WORK_PATH: Path = Path(__file__).parent.parent
 
 SUPERUSER_ID = env.list("SUPERUSER_ID")
 
-
-REDIS_HOST = env.str("REDIS_HOST", default="localhost")
-REDIS_PORT = env.int("REDIS_PORT", default=6379)
-
 POSTGRES_HOST = env.str("POSTGRES_HOST", default="localhost")
 POSTGRES_PORT = env.int("POSTGRES_PORT", default=5432)
 POSTGRES_DB = env.str("POSTGRES_DB")

@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "bot"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+packages = [
+    { include = "app" }
+]
+
+
+[tool.poetry.dependencies]
+python = "^3.8"
+aiogram = "^2.11.2"
+environs = "^9.2.0"
+loguru = "^0.5.3"
+gino = "^1.0.1"
+alembic = "^1.4.3"
+psycopg2-binary = "^2.8.6"
+
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
