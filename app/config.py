@@ -10,7 +10,7 @@ BOT_TOKEN = env.str("BOT_TOKEN")
 SKIP_UPDATES = env.bool("SKIP_UPDATES", False)
 WORK_PATH: Path = Path(__file__).parent.parent
 
-SUPERUSER_ID = env.list("SUPERUSER_ID")
+SUPERUSER_IDS = env.list("SUPERUSER_IDS")
 
 POSTGRES_HOST = env.str("POSTGRES_HOST", default="localhost")
 POSTGRES_PORT = env.int("POSTGRES_PORT", default=5432)
