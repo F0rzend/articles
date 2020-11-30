@@ -10,7 +10,7 @@ from app import middlewares, filters, handlers
 
 async def on_startup(dispatcher: Dispatcher):
     await utils.setup_default_commands(dispatcher)
-    await utils.notify_admins(config.SUPERUSER_ID)
+    await utils.notify_admins(config.SUPERUSER_IDS)
 
 
 if __name__ == '__main__':
