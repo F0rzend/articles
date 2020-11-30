@@ -1,5 +1,5 @@
 FROM python:3.8-slim-buster
-RUN apt-get update; apt-get install -y curl && mkdir /src
+RUN mkdir /src
 WORKDIR /src
 ENV PYTHONPATH "${PYTHONPATH}:/src/"
 ENV PATH "/src/scripts:${PATH}"
