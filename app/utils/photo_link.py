@@ -8,7 +8,7 @@ from aiogram.bot import Bot
 from app.loader import telegraph
 
 
-async def low_photo_url(photo: types.photo_size.PhotoSize) -> str:
+async def low_photo_link(photo: types.photo_size.PhotoSize) -> str:
     bot = Bot.get_current()
     with await photo.download(BytesIO()) as file:
         form = aiohttp.FormData()
@@ -23,7 +23,7 @@ async def low_photo_url(photo: types.photo_size.PhotoSize) -> str:
     return link
 
 
-async def photo_url(photo: types.photo_size.PhotoSize) -> str:
+async def photo_link(photo: types.photo_size.PhotoSize) -> str:
     with await photo.download(BytesIO()) as file:
         links = await telegraph.upload(file)
     return links[0]
