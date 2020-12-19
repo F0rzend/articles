@@ -1,3 +1,5 @@
+attrs==19.1.0
 aiogram==2.11.2
 environs==9.2.0
 loguru==0.5.3
+aiograph==0.2

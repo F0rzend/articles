@@ -1,26 +1,13 @@
-import aiohttp
 from aiogram import types
 
 from app.loader import dp
-
-from io import BytesIO
+from app.utils import low_photo_url, photo_url
 
 
 @dp.message_handler(content_types=types.ContentTypes.PHOTO)
 async def photo_handler(msg: types.Message):
     photo = msg.photo[-1]
-    with await photo.download(BytesIO()) as file:
-        form = aiohttp.FormData()
-        form.add_field(
-            name='file',
-            value=file,
-        )
-        request_answer = await dp.bot.session.post(
-            'https://telegra.ph/upload',
-            data=form,
-        )
-
-    img_src = await request_answer.json()
-    link = 'http://telegra.ph/' + img_src[0]["src"]
-
+    link = await low_photo_url(photo)
+    await msg.answer(link)
+    link = await photo_url(photo)
     await msg.answer(link)

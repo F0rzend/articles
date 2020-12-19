@@ -2,7 +2,7 @@ from aiogram import Dispatcher
 from aiogram.utils import executor
 
 from app import utils, config
-from app.loader import dp
+from app.loader import dp, telegraph
 
 # The configuration of the modules using import
 from app import middlewares, filters, handlers
@@ -11,6 +11,10 @@ from app import middlewares, filters, handlers
 async def on_startup(dispatcher: Dispatcher):
     await utils.setup_default_commands(dispatcher)
     await utils.notify_admins(config.SUPERUSER_IDS)
+
+
+async def on_shutdown(dispatcher: Dispatcher):
+    await telegraph.close()
 
 
 if __name__ == '__main__':

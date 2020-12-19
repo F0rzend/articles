@@ -1,6 +1,6 @@
 from aiogram import Bot, Dispatcher, types
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
-
+from aiograph import Telegraph
 
 from app import config
 
@@ -16,8 +16,11 @@ dp = Dispatcher(
     storage=storage,
 )
 
+telegraph = Telegraph()
+
 __all__ = (
     "bot",
     "storage",
     "dp",
+    "telegraph",
 )
