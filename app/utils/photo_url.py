@@ -25,6 +25,5 @@ async def low_photo_url(photo: types.photo_size.PhotoSize) -> str:
 
 async def photo_url(photo: types.photo_size.PhotoSize) -> str:
     with await photo.download(BytesIO()) as file:
-        img_src = await telegraph.upload(file, full=False)
-    link = 'http://telegra.ph/' + img_src[0]
-    return link
+        links = await telegraph.upload(file)
+    return links[0]
