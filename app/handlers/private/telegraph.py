@@ -8,10 +8,9 @@ from app.utils import photo_link, photo_link_aiograph
 async def photo_handler(msg: types.Message):
     photo = msg.photo[-1]
 
-    # await msg.bot.send_chat_action(msg.chat.id, 'upload_photo')
-    # link = await photo_link(photo)
-    # await msg.answer(link)
-
     await msg.bot.send_chat_action(msg.chat.id, 'upload_photo')
-    link = await photo_link_(photo)
+
+    # link = await photo_link(photo)
+    link = await photo_link_aiograph(photo)
+
     await msg.answer(link)
