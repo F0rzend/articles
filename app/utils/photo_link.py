@@ -22,7 +22,7 @@ async def photo_link(photo: types.photo_size.PhotoSize) -> str:
     return link
 
 
-async def photo_link_(photo: types.photo_size.PhotoSize) -> str:
+async def photo_link_aiograph(photo: types.photo_size.PhotoSize) -> str:
     with await photo.download(BytesIO()) as file:
         links = await telegraph.upload(file)
     return links[0]
