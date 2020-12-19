@@ -3,13 +3,12 @@ from io import BytesIO
 import aiohttp
 
 from aiogram import types
-from aiogram.bot import Bot
 
 from app.loader import telegraph
+from app.loader import bot
 
 
 async def photo_link(photo: types.photo_size.PhotoSize) -> str:
-    bot = Bot.get_current()
     with await photo.download(BytesIO()) as file:
         form = aiohttp.FormData()
         form.add_field(
