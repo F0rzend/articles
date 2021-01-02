@@ -5,7 +5,7 @@ from app import utils, config
 from app.loader import dp
 
 # The configuration of the modules using import
-from app import middlewares, filters, handlers
+from app import middlewares, handlers
 
 
 async def on_startup(dispatcher: Dispatcher):
