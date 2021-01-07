@@ -38,8 +38,8 @@ async def reply_filter_example(msg: types.Message):
     await msg.answer(msg.reply_to_message.from_user.id)
 
 
-@dp.message_handler(is_chat_admin=True, commands='change_photo')
-@dp.message_handler(filters.AdminFilter(), commands='change_photo')
+@dp.message_handler(commands='change_photo', is_chat_admin=True)
+@dp.message_handler(filters.Command('change_photo'), filters.AdminFilter())
 async def chat_admin_example(msg: types.Message):
     await msg.answer('Не, мне и эта нравится')
 
@@ -51,9 +51,7 @@ async def text_example(msg: types.Message):
 
 @dp.message_handler(commands='set_state')
 async def set_state(msg: types.Message, state: FSMContext):
-    '''
-    Присваиваем пользователю состояние для теста
-    '''
+    """Присваиваем пользователю состояние для теста"""
     await state.set_state('example_state')
     await msg.answer('Состояние установлено')
 
