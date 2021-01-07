@@ -92,8 +92,8 @@ async def content_type_example(msg: types.Message):
     await msg.answer('Красивенько 😍')
 
 
-@dp.message_handler(commands=['myCommand'], commands_ignore_caption=False)
-@dp.message_handler(filters.Command(['myCommand'], ignore_caption=False))
+@dp.message_handler(commands='myCommand', commands_ignore_caption=False)
+@dp.message_handler(filters.Command('myCommand', ignore_caption=False))
 async def command_example(msg: types.Message):
     await msg.answer('Твоя команда, твоя, не кричи')
 
