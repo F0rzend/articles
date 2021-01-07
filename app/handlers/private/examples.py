@@ -44,12 +44,6 @@ async def chat_admin_example(msg: types.Message):
     await msg.answer('Не, мне и эта нравится')
 
 
-@dp.message_handler(filters.IDFilter(user_id=SUPERUSER_IDS, chat_id=SUPERUSER_IDS), commands='is_our')
-@dp.message_handler(user_id=SUPERUSER_IDS, chat_id=SUPERUSER_IDS, commands='is_our')
-async def id_filter_example(msg: types.Message):
-    await msg.answer('Да, помню тебя, наш человек')
-
-
 @dp.message_handler(filters.Text(contains=FORBIDDEN_PHRASE, ignore_case=True))
 async def text_example(msg: types.Message):
     await msg.reply('Сам фигня!')
@@ -106,3 +100,9 @@ async def deep_link(msg: types.Message):
 @dp.message_handler(filters.CommandStart())
 async def command_start_handler(msg: types.Message):
     await msg.answer(f'Ну привет, хотел чего?')
+
+
+@dp.message_handler(filters.IDFilter(chat_id=SUPERUSER_IDS))
+@dp.message_handler(chat_id=SUPERUSER_IDS)
+async def id_filter_example(msg: types.Message):
+    await msg.answer('Да, помню тебя, наш человек')
