@@ -55,16 +55,19 @@ async def text_example(msg: types.Message):
     await msg.reply('Сам фигня!')
 
 
+@dp.message_handler(commands='set_state')
+async def set_state(msg: types.Message, state: FSMContext):
+    '''
+    Присваиваем пользователю состояние для теста
+    '''
+    await state.set_state('example_state')
+    await msg.answer('Состояние установлено')
+
+
 @dp.message_handler(state='example_state')
 async def state_example(msg: types.Message, state: FSMContext):
     await msg.answer('Ой всё, иди отсюда')
     await state.finish()
-
-
-@dp.message_handler(commands='set_state')
-async def set_state(msg: types.Message, state: FSMContext):
-    await state.set_state('example_state')
-    await msg.answer('Состояние установлено')
 
 
 @dp.message_handler(filters.RegexpCommandsFilter([COMMAND_IMAGE_REGEXP]))
@@ -81,7 +84,6 @@ async def regexp_example(msg: types.Message):
 
 @dp.message_handler(hashtags='money')
 @dp.message_handler(cashtags=['eur', 'usd'])
-@dp.message_handler(filters.HashTag(hashtags='money'))
 async def hashtag_example(msg: types.Message):
     await msg.answer('Ееее, деньги 😎')
 
