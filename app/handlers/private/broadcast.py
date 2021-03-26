@@ -1,7 +1,7 @@
 from aiogram.dispatcher import FSMContext
 from aiogram.types import Message
 
-from app.utils.broadcast import CopyBroadcast
+from aiogram_broadcaster import MessageBroadcaster
 from app.utils.get_users import get_users
 
 
@@ -20,4 +20,4 @@ async def start_broadcast(msg: Message, state: FSMContext):
     await state.finish()
     storage = state.storage
     users = await get_users(storage)  # Список айдишников, можете доставать из базы данных или как вам удобнее.
-    await CopyBroadcast(users, msg).run()
+    await MessageBroadcaster(users, msg).run()

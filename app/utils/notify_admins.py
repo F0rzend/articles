@@ -1,5 +1,5 @@
-from .broadcast import types, TextBroadcast
+from aiogram_broadcaster import types, TextBroadcaster
 
 
 async def notify_admins(admins: types.ChatsType):
-    await TextBroadcast(admins, '$chat_id, The bot is running!').run()
+    await TextBroadcaster(admins, '$chat_id, The bot is running!').run()
